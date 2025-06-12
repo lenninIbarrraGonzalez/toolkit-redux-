@@ -6,7 +6,6 @@ export const getPokemons = (page = 0) => {
     dispatch(startLoadingPokemon());
 
     const resp = await pokemonApi.get(`pokemon?limit=10&offset=${page * 10}`);
-    console.log(resp);
     const { data } = resp;
 
     dispatch(setPokemons({ pokemons: data.results, page: page + 1 }));
